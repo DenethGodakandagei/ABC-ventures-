@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-08-27.basil", // or remove this line if mismatch
+  apiVersion: "2025-08-27.basil", 
 });
 
 export async function POST(req: Request) {
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
             name: item.title,
             images: [item.image],
           },
-          unit_amount: Math.round(item.price * 100), // cents
+          unit_amount: Math.round(item.price * 100), 
         },
         quantity: item.quantity,
       })),

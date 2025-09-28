@@ -1,4 +1,3 @@
-// models/Hotel.ts
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IHotel extends Document {

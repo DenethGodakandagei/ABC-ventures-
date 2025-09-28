@@ -1,4 +1,3 @@
-// app/api/hotels/[id]/route.ts
 import { NextResponse } from "next/server";
 import { connectDB } from "@/libs/db";
 import Hotel from "@/models/Hotel";

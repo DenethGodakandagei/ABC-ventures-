@@ -23,8 +23,8 @@ const Cart = () => {
         items: cart.map((item) => ({
           title: item.title,
           image: item.image,
-          price: item.price.adult, // adjust if you want to include kids
-          quantity: item.adults,   // adjust as needed
+          price: item.price.adult,
+          quantity: item.adults,  
         })),
       }),
     });

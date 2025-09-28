@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 
-
 type Meal = {
   city: string;
   type: "Breakfast" | "Lunch" | "Dinner" | "Events" | "Offers";
@@ -40,18 +39,23 @@ const Meals: React.FC = () => {
     filter === "All" ? meals : meals.filter((meal) => meal.type === filter);
 
   return (
-    <div className="p-8 max-w-7xl mx-auto">
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold text-red-800 Playfair">ABC Ventures</h1>
-        <span className="text-yellow-600 text-xl Playfair">- City A</span>
+    <div className="p-4 sm:p-6 md:p-8 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between mb-8 gap-2 sm:gap-0 text-center sm:text-left">
+        <h1 className="text-2xl sm:text-3xl font-bold text-red-800 Playfair">
+          ABC Ventures
+        </h1>
+        <span className="text-yellow-600 text-lg sm:text-xl Playfair">
+          - City A
+        </span>
       </div>
 
       {/* Filter Buttons */}
-      <div className="flex gap-2 mb-8">
+      <div className="flex flex-wrap justify-center sm:justify-start gap-2 mb-8">
         {mealTypes.map((type) => (
           <button
             key={type}
-            className={`px-4 py-1 rounded ${
+            className={`px-3 sm:px-4 py-1 rounded text-sm sm:text-base ${
               filter === type
                 ? "bg-red-800 text-white"
                 : "bg-gray-200 text-gray-800"
@@ -69,52 +73,58 @@ const Meals: React.FC = () => {
         if (mealsOfType.length === 0) return null;
         return (
           <div key={mealType} className="mb-12">
-            <h2 className="text-3xl font-semibold text-red-800 mb-4 Playfair">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-red-800 mb-4 Playfair text-center sm:text-left">
               {mealType}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mealsOfType.map((meal, idx) => (
-  <div key={idx} className="overflow-hidden">
-    <img
-      src={meal.images[0]}
-      alt={meal.title}
-      className="w-full h-48 object-cover rounded-tl-2xl rounded-br-2xl"
-    />
-    <div>
-      <div className="flex py-4">
-        <div className="w-3/4">
-          <h3 className="font-semibold mb-2">{meal.title}</h3>
-          <p className="text-gray-600 mb-2">
-            {meal.description.length > 30
-              ? meal.description.slice(0, 30) + "..."
-              : meal.description}
-          </p>
-        </div>
-        <div className="w-1/4 font-bold mb-4 text-yellow-600">
-          USD {meal.price.adult}
-        </div>
-      </div>
+              {mealsOfType.map((meal, idx) => (
+                <div
+                  key={idx}
+                  className="overflow-hidden border rounded-lg shadow-sm hover:shadow-md transition"
+                >
+                  <img
+                    src={meal.images[0]}
+                    alt={meal.title}
+                    className="w-full h-40 sm:h-48 object-cover rounded-tl-2xl rounded-br-2xl"
+                  />
+                  <div className="p-3 sm:p-4">
+                    <div className="flex flex-col sm:flex-row sm:items-start py-2 sm:py-4">
+                      <div className="sm:w-3/4 w-full">
+                        <h3 className="font-semibold mb-1 text-base sm:text-lg">
+                          {meal.title}
+                        </h3>
+                        <p className="text-gray-600 mb-2 text-sm sm:text-base">
+                          {meal.description.length > 30
+                            ? meal.description.slice(0, 30) + "..."
+                            : meal.description}
+                        </p>
+                      </div>
+                      <div className="sm:w-1/4 w-full font-bold text-yellow-600 text-sm sm:text-base mt-2 sm:mt-0">
+                        USD {meal.price.adult}
+                      </div>
+                    </div>
 
-      <div className="flex gap-2 justify-between">
-        {/* ✅ Navigate to /meals/[id] */}
-        <Link
-          href={{
-            pathname: `/details/${idx}`,
-            query: { meal: JSON.stringify(meal) }, // passing full object
-          }}
-        >
-          <button className="border border-red-800 text-red-800 px-6 py-1 hover:bg-red-800 hover:text-white transition rounded-tl-xl rounded-br-xl Playfair">
-            View Menu
-          </button>
-        </Link>
+                    <div className="flex flex-col sm:flex-row gap-2 justify-between">
+                      {/* Navigate to /details/[id] */}
+                      <Link
+                        href={{
+                          pathname: `/details/${idx}`,
+                          query: { meal: JSON.stringify(meal) },
+                        }}
+                        className="w-full sm:w-auto"
+                      >
+                        <button className="w-full sm:w-auto border border-red-800 text-red-800 px-4 sm:px-6 py-2 text-sm sm:text-base hover:bg-red-800 hover:text-white transition rounded-tl-xl rounded-br-xl Playfair">
+                          View Menu
+                        </button>
+                      </Link>
 
-        <button className="bg-red-800 text-white px-6 py-1 hover:bg-red-900 transition rounded-tl-xl rounded-br-xl Playfair">
-          Reserve Table Now
-        </button>
-      </div>
-    </div>
-  </div>
-))}
+                      <button className="w-full sm:w-auto bg-red-800 text-white px-4 sm:px-6 py-2 text-sm sm:text-base hover:bg-red-900 transition rounded-tl-xl rounded-br-xl Playfair">
+                        Reserve Table Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         );
