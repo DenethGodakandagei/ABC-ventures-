@@ -9,29 +9,30 @@ const Footer: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Logo & Description */}
         <div>
-          <h1 className="text-3xl font-bold tracking-widest">A B C</h1>
-          <p className="mt-2 text-sm">VENTURES</p>
-          <p className="mt-4 text-sm leading-relaxed">
+
+          <h1 className="text-3xl font-bold tracking-widest Playfair">A B C</h1>
+          <p className="-mt-2  tracking-wide Playfair">VENTURES</p>
+          <p className="mt-4 text-sm leading-relaxed text-gray-300">
             Distinguished leader in Qatar’s hospitality and food & beverage
             industry, delivering unparalleled culinary experiences.
           </p>
           <div className="flex space-x-4 mt-4">
             <a href="#" aria-label="Facebook">
-              <FaFacebookF className="text-xl hover:text-yellow-400" />
+              <FaFacebookF className="text-xl text-yellow-400" />
             </a>
             <a href="#" aria-label="Instagram">
-              <FaInstagram className="text-xl hover:text-yellow-400" />
+              <FaInstagram className="text-xl text-yellow-400" />
             </a>
             <a href="#" aria-label="YouTube">
-              <FaYoutube className="text-xl hover:text-yellow-400" />
+              <FaYoutube className="text-xl text-yellow-400" />
             </a>
           </div>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h2 className="font-semibold text-lg mb-3">Quick Links</h2>
-          <ul className="space-y-2 text-sm">
+          <h2 className="font-semibold text-lg mb-3 Playfair">Quick Links</h2>
+          <ul className="space-y-2 text-sm text-gray-200">
             <li><a href="#">Services &amp; Leisures</a></li>
             <li><a href="#">Our Restaurants</a></li>
             <li><a href="#">About Us</a></li>
@@ -43,8 +44,8 @@ const Footer: React.FC = () => {
 
         {/* Restaurant Categories */}
         <div>
-          <h2 className="font-semibold text-lg mb-3">Restaurant Categories</h2>
-          <ul className="space-y-2 text-sm">
+          <h2 className="font-semibold text-lg mb-3 Playfair">Restaurant Categories</h2>
+          <ul className="space-y-2 text-sm text-gray-200">
             <li><a href="#">Home-grown Restaurants</a></li>
             <li><a href="#">Franchised Restaurants</a></li>
             <li><a href="#">Virtual Restaurants</a></li>
@@ -55,28 +56,31 @@ const Footer: React.FC = () => {
 
         {/* Newsletter */}
         <div>
-          <h2 className="font-semibold text-lg mb-3">Stay Connected</h2>
-          <p className="text-sm mb-4">
+          <h2 className="font-semibold text-lg mb-3 Playfair">Stay Connected</h2>
+          <p className="text-sm mb-4 text-gray-200">
             Subscribe to our newsletter for updates on new restaurants and exclusive offers.
           </p>
-          <form className="flex flex-col space-y-3">
-            <input
-              type="email"
-              placeholder="john@gmail.com"
-              className="px-4 py-2 rounded-md text-black outline-none"
-            />
-            <button
-              type="submit"
-              className="bg-white text-[#891739] font-semibold px-4 py-2 rounded-md hover:bg-gray-100"
-            >
-              Subscribe
-            </button>
-          </form>
+         <form className="flex flex-col space-y-3">
+  <input
+    type="email"
+    placeholder="john@gmail.com"
+    className="px-4 py-2 text-black bg-white outline-none rounded-tl-2xl rounded-br-2xl"
+  />
+  <div className="flex justify-end">
+    <button
+      type="submit"
+      className="text-white border font-semibold px-4 py-2 hover:bg-gray-100 rounded-tl-2xl rounded-br-2xl w-28 Playfair"
+    >
+      Subscribe
+    </button>
+  </div>
+</form>
+
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-600 mt-10 pt-4 flex flex-col md:flex-row justify-between text-xs text-gray-300">
+      <div className="border-t border-yellow-600 mt-10 pt-4 flex flex-col md:flex-row justify-between text-xs text-gray-300">
         <p>© 2025 ABC Ventures. All rights reserved.</p>
         <div className="flex space-x-6 mt-2 md:mt-0">
           <a href="#">Terms of Use</a>

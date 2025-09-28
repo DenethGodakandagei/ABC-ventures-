@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
+
 
 type Meal = {
   city: string;
@@ -40,8 +42,8 @@ const Meals: React.FC = () => {
   return (
     <div className="p-8 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold text-red-800">ABC Ventures</h1>
-        <span className="text-yellow-600 text-xl">- City A</span>
+        <h1 className="text-3xl font-bold text-red-800 Playfair">ABC Ventures</h1>
+        <span className="text-yellow-600 text-xl Playfair">- City A</span>
       </div>
 
       {/* Filter Buttons */}
@@ -67,43 +69,52 @@ const Meals: React.FC = () => {
         if (mealsOfType.length === 0) return null;
         return (
           <div key={mealType} className="mb-12">
-            <h2 className="text-2xl font-semibold text-red-800 mb-4">
+            <h2 className="text-3xl font-semibold text-red-800 mb-4 Playfair">
               {mealType}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {mealsOfType.map((meal, idx) => (
-                <div key={idx} className="  overflow-hidden">
-                  <img
-                    src={meal.images[0]}
-                    alt={meal.title}
-                    className="w-full h-48 object-cover rounded-tl-2xl  rounded-br-2xl"
-                  />
-                  <div>
-                    <div className="flex py-4">
-                      <div className="w-3/4">
-                        <h3 className="font-semibold mb-2">{meal.title}</h3>
-                        <p className="text-gray-600 mb-2">
-                          {meal.description.length > 30
-                            ? meal.description.slice(0, 30) + "..."
-                            : meal.description}
-                        </p>
-                      </div>
-                      <div className="w-1/4 font-bold mb-4 text-yellow-600">
-                        USD {meal.price.adult}{" "}
-                      </div>
-                    </div>
+            {mealsOfType.map((meal, idx) => (
+  <div key={idx} className="overflow-hidden">
+    <img
+      src={meal.images[0]}
+      alt={meal.title}
+      className="w-full h-48 object-cover rounded-tl-2xl rounded-br-2xl"
+    />
+    <div>
+      <div className="flex py-4">
+        <div className="w-3/4">
+          <h3 className="font-semibold mb-2">{meal.title}</h3>
+          <p className="text-gray-600 mb-2">
+            {meal.description.length > 30
+              ? meal.description.slice(0, 30) + "..."
+              : meal.description}
+          </p>
+        </div>
+        <div className="w-1/4 font-bold mb-4 text-yellow-600">
+          USD {meal.price.adult}
+        </div>
+      </div>
 
-                    <div className="flex gap-2 justify-between">
-                      <button className="border border-red-800 text-red-800 px-6 py-1  hover:bg-red-800 hover:text-white transition rounded-tl-xl  rounded-br-xl">
-                        View Menu
-                      </button>
-                      <button className="bg-red-800 text-white px-6 py-1  hover:bg-red-900 transition rounded-tl-xl  rounded-br-xl">
-                        Reserve Table Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
+      <div className="flex gap-2 justify-between">
+        {/* ✅ Navigate to /meals/[id] */}
+        <Link
+          href={{
+            pathname: `/details/${idx}`,
+            query: { meal: JSON.stringify(meal) }, // passing full object
+          }}
+        >
+          <button className="border border-red-800 text-red-800 px-6 py-1 hover:bg-red-800 hover:text-white transition rounded-tl-xl rounded-br-xl Playfair">
+            View Menu
+          </button>
+        </Link>
+
+        <button className="bg-red-800 text-white px-6 py-1 hover:bg-red-900 transition rounded-tl-xl rounded-br-xl Playfair">
+          Reserve Table Now
+        </button>
+      </div>
+    </div>
+  </div>
+))}
             </div>
           </div>
         );

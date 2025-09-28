@@ -56,11 +56,11 @@ const Contact: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-8xl p-8 w-full">
         {/* Left Side */}
         <div className="w-full md:w-3/4 mx-auto">
-          <h2 className="text-5xl font-bold">
+          <h2 className="text-6xl font-bold Playfair">
             <span className="text-rose-900">Get</span>{" "}
             <span className="text-yellow-600">in Touch</span>
           </h2>
-          <p className="text-yellow-600 mt-2 justify-end font-bold flex">
+          <p className="text-yellow-600 mt-2 justify-end font-bold flex ">
             CONNECT WITH US
           </p>
           <p className="mt-4 text-gray-700">
@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
           onSubmit={handleSubmit}
           className="space-y-6 bg-white rounded-lg p-6  w-full"
         >
-          <h3 className="text-lg font-semibold tracking-wide">
+          <h3 className="text-lg font-semibold tracking-wide Playfair">
             SEND YOUR MESSAGE
           </h3>
 

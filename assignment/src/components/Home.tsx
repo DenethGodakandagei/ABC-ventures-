@@ -1,23 +1,44 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import axios from "axios";
+
+interface Hotel {
+  _id: string;
+  name: string;
+  city: string;
+}
 
 const Home = () => {
-  const cities = [
-    "ABC Ventures - City A",
-    "ABC Ventures - City B",
-    "ABC Ventures - City C",
-    "ABC Ventures - City D",
-  ];
-
-  const [location, setLocation] = useState(cities[0]);
+  const [hotels, setHotels] = useState<Hotel[]>([]);
+  const [location, setLocation] = useState<string>("");
   const [date, setDate] = useState("June 13, 25");
   const [meal, setMeal] = useState("Breakfast");
   const [adults, setAdults] = useState(1);
   const [tableNo, setTableNo] = useState(15);
 
+
+useEffect(() => {
+  const fetchHotels = async () => {
+    try {
+      const res = await axios.get<Hotel[]>("/api/hotels");
+      const data = res.data;
+      setHotels(data);
+
+      if (data.length > 0) {
+        setLocation(`${data[0].name} - ${data[0].city}`);
+      }
+    } catch (error) {
+      console.error("Failed to fetch hotels:", error);
+    }
+  };
+
+  fetchHotels();
+}, []);
+
+
   return (
-    <section className="relative w-full h-screen">
+    <section className="relative w-full h-[500px] Playfair">
       {/* Background Image */}
       <Image
         src="/Bannerimg.png"
@@ -28,7 +49,7 @@ const Home = () => {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 "></div>
+      <div className="absolute inset-0"></div>
 
       {/* Reservation Bar */}
       <div className="absolute left-1/2 -translate-x-1/2 top-1/3 w-11/12 md:w-4/5 lg:w-3/4 bg-white rounded-tl-3xl rounded-br-lg shadow-3xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
@@ -38,17 +59,22 @@ const Home = () => {
           onChange={(e) => setLocation(e.target.value)}
           className="border rounded-md p-2 w-full md:w-auto text-gray-800"
         >
-          {cities.map((city) => (
-            <option
-              key={city}
-              value={city}
-              className={
-                location === city ? "text-pink-600 font-semibold" : "text-gray-800"
-              }
-            >
-              {city}
-            </option>
-          ))}
+          {hotels.map((hotel) => {
+            const value = `${hotel.name} - ${hotel.city}`;
+            return (
+              <option
+                key={hotel._id}
+                value={value}
+                className={
+                  location === value
+                    ? "text-pink-600 font-semibold"
+                    : "text-gray-800"
+                }
+              >
+                {value}
+              </option>
+            );
+          })}
         </select>
 
         {/* Date & Meal */}
@@ -62,7 +88,7 @@ const Home = () => {
           <select
             value={meal}
             onChange={(e) => setMeal(e.target.value)}
-            className="border rounded-md p-2  w-1/2"
+            className="border rounded-md p-2 w-1/2"
           >
             <option>Breakfast</option>
             <option>Lunch</option>
@@ -97,24 +123,24 @@ const Home = () => {
       </div>
 
       {/* City List Under Selector */}
-      <div className="absolute bottom-32 left-1/2 -translate-x-1/2  w-full">
-  <div className="flex justify-center gap-8 text-2xl font-medium text-white">
-    {cities.map((city) => (
-      <span
-        key={city}
-        className={`cursor-pointer ${
-          location === city
-            ? "text-yellow-500 "
-            : "hover:text-yellow-500 "
-        }`}
-        onClick={() => setLocation(city)}
-      >
-        {city}
-      </span>
-    ))}
-  </div>
-</div>
-
+      <div className="absolute bottom-32 left-1/2 -translate-x-1/2 w-full">
+        <div className="flex justify-center gap-8 text-2xl font-medium text-white">
+          {hotels.map((hotel) => {
+            const value = `${hotel.name} - ${hotel.city}`;
+            return (
+              <span
+                key={hotel._id}
+                className={`cursor-pointer ${
+                  location === value ? "text-yellow-500" : "hover:text-yellow-500"
+                }`}
+                onClick={() => setLocation(value)}
+              >
+                {value}
+              </span>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 };
