@@ -4,6 +4,7 @@ import { Check } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const page = () => {
+
   const router = useRouter();
 
   return (
@@ -26,7 +27,7 @@ const page = () => {
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button
             onClick={() => router.push("/")}
-            className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition"
+            className="bg-[var(--color-brand)] text-white px-6 py-2 rounded-lg hover:bg-red-900 transition"
           >
             Back to Home
           </button>

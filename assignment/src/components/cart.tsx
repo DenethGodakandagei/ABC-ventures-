@@ -38,7 +38,7 @@ const Cart = () => {
     <div className="p-6 bg-white rounded-xl shadow-sm min-h-[500px]">
       {/* Go Back */}
       <div
-        className="flex items-center gap-2 text-red-600 cursor-pointer mb-6"
+        className="flex items-center gap-2 text-[var(--color-brand)] cursor-pointer mb-6"
         onClick={() => router.back()}
       >
         <FaArrowLeft />
@@ -62,7 +62,7 @@ const Cart = () => {
                   className="w-28 h-28 object-cover rounded-lg"
                 />
                 <div>
-                  <h2 className="text-xl font-semibold text-red-700">{item.title}</h2>
+                  <h2 className="text-xl font-semibold text-[var(--color-brand)]">{item.title}</h2>
                   <p className="text-gray-700 text-sm">
                     {item.adults > 0 && (
                       <>
@@ -85,19 +85,19 @@ const Cart = () => {
                 <div className="flex flex-col">
                   <span className="text-xs text-gray-500 mb-1">*Ticket Type & Quantity</span>
                   <div className="flex items-center border border-red-300 rounded-lg px-3 py-1">
-                    <span className="mr-4 text-red-700 font-medium">Adults Ticket</span>
+                    <span className="mr-4 text-[var(--color-brand)] font-medium">Adults Ticket</span>
                     <button
                       onClick={() =>
                         updateQuantity(item.id, Math.max(1, item.adults - 1), item.kids)
                       }
-                      className="p-1 text-red-600 hover:text-red-800"
+                      className="p-1 text-[var(--color-brand)] hover:text-red-800"
                     >
                       <FaMinus />
                     </button>
                     <span className="px-3">{item.adults}</span>
                     <button
                       onClick={() => updateQuantity(item.id, item.adults + 1, item.kids)}
-                      className="p-1 text-red-600 hover:text-red-800"
+                      className="p-1 text-[var(--color-brand)] hover:text-[var(--color-brand)]"
                     >
                       <FaPlus />
                     </button>
@@ -116,7 +116,7 @@ const Cart = () => {
 
                 {/* Remove */}
                 <div
-                  className="flex flex-col items-center text-red-600 cursor-pointer"
+                  className="flex flex-col items-center text-[var(--color-brand)] cursor-pointer"
                   onClick={() => removeFromCart(item.id)}
                 >
                   <FaTrash />
@@ -136,7 +136,7 @@ const Cart = () => {
             </p>
             <button
               onClick={handleCheckout}
-              className="bg-red-700 text-white px-6 py-2 rounded-lg hover:bg-red-800 transition"
+              className="bg-[var(--color-brand)] text-white px-6 py-2 rounded-lg hover:bg-[var(--color-brand)] transition"
             >
               Checkout
             </button>

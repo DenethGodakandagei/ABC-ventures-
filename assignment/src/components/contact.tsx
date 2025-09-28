@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
         {/* Left Side */}
         <div className="w-full md:w-3/4 mx-auto">
           <h2 className="text-6xl font-bold Playfair">
-            <span className="text-rose-900">Get</span>{" "}
+            <span className="text-[var(--color-brand)]">Get</span>{" "}
             <span className="text-yellow-600">in Touch</span>
           </h2>
           <p className="text-yellow-600 mt-2 justify-end font-bold flex ">
@@ -70,25 +70,25 @@ const Contact: React.FC = () => {
 
           <div className="mt-8 space-y-6">
             <div className="flex items-center space-x-4">
-              <FaMapMarkerAlt className="text-rose-900 text-xl" />
+              <FaMapMarkerAlt className="text-[var(--color-brand)] text-xl" />
               <div>
-                <p className="text-rose-900 font-semibold">Visit Us</p>
+                <p className="text-[var(--color-brand)] font-semibold">Visit Us</p>
                 <p className="text-gray-600">City, Country</p>
               </div>
             </div>
 
             <div className="flex items-center space-x-4">
-              <FaEnvelope className="text-rose-900 text-xl" />
+              <FaEnvelope className="text-[var(--color-brand)] text-xl" />
               <div>
-                <p className="text-rose-900 font-semibold">Email Us</p>
+                <p className="text-[var(--color-brand)] font-semibold">Email Us</p>
                 <p className="text-gray-600">info@abcventures.com</p>
               </div>
             </div>
 
             <div className="flex items-center space-x-4">
-              <FaPhoneAlt className="text-rose-900 text-xl" />
+              <FaPhoneAlt className="text-[var(--color-brand)] text-xl" />
               <div>
-                <p className="text-rose-900 font-semibold">Call Us</p>
+                <p className="text-[var(--color-brand)] font-semibold">Call Us</p>
                 <p className="text-gray-600">+XXX XXXX XXXX</p>
               </div>
             </div>
@@ -150,7 +150,7 @@ const Contact: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-rose-900 hover:bg-rose-800 rounded-tl-2xl rounded-br-2xl text-white px-6 py-3 transition justify-end"
+            className="bg-[var(--color-brand)] hover:bg-rose-800 rounded-tl-2xl rounded-br-2xl text-white px-6 py-3 transition justify-end"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>

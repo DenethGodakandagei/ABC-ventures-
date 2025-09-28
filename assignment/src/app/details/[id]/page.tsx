@@ -69,7 +69,7 @@ const MealDetailsPage = () => {
                 key={tab}
                 className={`px-3 sm:px-4 py-1 text-xs sm:text-sm rounded-full border ${
                   tab === mealData.type
-                    ? "bg-pink-100 text-pink-600 font-semibold border-pink-300"
+                    ? "bg-pink-100 text-[var(--color-brand)] font-semibold border-pink-300"
                     : "text-gray-600 hover:text-black"
                 }`}
               >
@@ -110,7 +110,7 @@ const MealDetailsPage = () => {
             </p>
 
             <p className="font-semibold text-gray-800 mb-2 text-sm sm:text-base">
-              <span className="text-pink-600">Breakfast Time:</span> Monday to
+              <span className="text-[var(--color-brand)]">Breakfast Time:</span> Monday to
               Sunday – 6:30am to 10:30am
             </p>
             <p className="text-gray-600 mb-2 text-sm sm:text-base">
@@ -192,7 +192,7 @@ const MealDetailsPage = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={handleAddToCart}
-                className="px-5 sm:px-6 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 text-sm sm:text-base"
+                className="px-5 sm:px-6 py-2 bg-[var(--color-brand)] text-white rounded-lg hover:bg-pink-900 text-sm sm:text-base"
               >
                 Add To Cart
               </button>

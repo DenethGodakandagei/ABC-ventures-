@@ -42,7 +42,7 @@ const Meals: React.FC = () => {
     <div className="p-4 sm:p-6 md:p-8 max-w-7xl mx-auto">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between mb-8 gap-2 sm:gap-0 text-center sm:text-left">
-        <h1 className="text-2xl sm:text-3xl font-bold text-red-800 Playfair">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[var(--color-brand)] Playfair">
           ABC Ventures
         </h1>
         <span className="text-yellow-600 text-lg sm:text-xl Playfair">
@@ -57,7 +57,7 @@ const Meals: React.FC = () => {
             key={type}
             className={`px-3 sm:px-4 py-1 rounded text-sm sm:text-base ${
               filter === type
-                ? "bg-red-800 text-white"
+                ? "bg-[var(--color-brand)] text-white"
                 : "bg-gray-200 text-gray-800"
             }`}
             onClick={() => setFilter(type)}
@@ -73,7 +73,7 @@ const Meals: React.FC = () => {
         if (mealsOfType.length === 0) return null;
         return (
           <div key={mealType} className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-red-800 mb-4 Playfair text-center sm:text-left">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-brand)] mb-4 Playfair text-center sm:text-left">
               {mealType}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -113,12 +113,12 @@ const Meals: React.FC = () => {
                         }}
                         className="w-full sm:w-auto"
                       >
-                        <button className="w-full sm:w-auto border border-red-800 text-red-800 px-4 sm:px-6 py-2 text-sm sm:text-base hover:bg-red-800 hover:text-white transition rounded-tl-xl rounded-br-xl Playfair">
+                        <button className="w-full sm:w-auto border border-[var(--color-brand)] text-[var(--color-brand)] px-4 sm:px-6 py-2 text-sm sm:text-base hover:bg-red-800 hover:text-white transition rounded-tl-xl rounded-br-xl Playfair">
                           View Menu
                         </button>
                       </Link>
 
-                      <button className="w-full sm:w-auto bg-red-800 text-white px-4 sm:px-6 py-2 text-sm sm:text-base hover:bg-red-900 transition rounded-tl-xl rounded-br-xl Playfair">
+                      <button className="w-full sm:w-auto bg-[var(--color-brand)] text-white px-4 sm:px-6 py-2 text-sm sm:text-base hover:bg-red-900 transition rounded-tl-xl rounded-br-xl Playfair">
                         Reserve Table Now
                       </button>
                     </div>

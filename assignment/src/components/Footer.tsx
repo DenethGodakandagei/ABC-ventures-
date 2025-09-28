@@ -5,7 +5,7 @@ import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#891739] rounded-tl-[60px] sm:rounded-tl-[80px] md:rounded-tl-[100px] text-white py-10 px-6 md:px-20">
+    <footer className="bg-[var(--color-brand)] rounded-tl-[60px] sm:rounded-tl-[80px] md:rounded-tl-[100px] text-white py-10 px-6 md:px-20">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Logo & Description */}
         <div>
@@ -21,13 +21,13 @@ const Footer: React.FC = () => {
           </p>
           <div className="flex space-x-4 mt-4">
             <a href="#" aria-label="Facebook">
-              <FaFacebookF className="text-lg sm:text-xl text-yellow-400" />
+              <FaFacebookF className="text-lg sm:text-xl text-yellow-500" />
             </a>
             <a href="#" aria-label="Instagram">
-              <FaInstagram className="text-lg sm:text-xl text-yellow-400" />
+              <FaInstagram className="text-lg sm:text-xl text-yellow-500" />
             </a>
             <a href="#" aria-label="YouTube">
-              <FaYoutube className="text-lg sm:text-xl text-yellow-400" />
+              <FaYoutube className="text-lg sm:text-xl text-yellow-500" />
             </a>
           </div>
         </div>
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
             <div className="flex justify-end">
               <button
                 type="submit"
-                className="text-white border font-semibold px-4 py-2 hover:bg-gray-100 hover:text-[#891739] transition rounded-tl-2xl rounded-br-2xl w-24 sm:w-28 Playfair"
+                className="text-white border font-semibold px-4 py-2 hover:bg-gray-100 hover:text-[var(--color-brand)] transition rounded-tl-2xl rounded-br-2xl w-24 sm:w-28 Playfair"
               >
                 Subscribe
               </button>

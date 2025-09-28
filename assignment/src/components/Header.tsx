@@ -19,19 +19,19 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8 font-medium text-white">
-          <Link href="/" className="hover:text-pink-400">
+          <Link href="/" className="hover:text-[var(--color-brand)]">
             Home
           </Link>
-          <Link href="/" className="hover:text-pink-400">
+          <Link href="/" className="hover:text-[var(--color-brand)]">
             About
           </Link>
-          <Link href="/" className="hover:text-pink-400">
+          <Link href="/" className="hover:text-[var(--color-brand)]">
             Restaurants
           </Link>
-          <Link href="/" className="hover:text-pink-400">
+          <Link href="/" className="hover:text-[var(--color-brand)]">
             Services
           </Link>
-          <Link href="/contact" className="hover:text-pink-400">
+          <Link href="/contact" className="hover:text-[var(--color-brand)]">
             Contact
           </Link>
         </nav>
@@ -40,7 +40,7 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <Link
             href="/cart"
-            className="flex items-center bg-pink-700 hover:bg-pink-800 text-white px-4 py-2 rounded-md"
+            className="flex items-center bg-[var(--color-brand)] hover:bg-[var(--color-brand)] text-white px-4 py-2 rounded-md"
           >
             <ShoppingCart size={18} className="mr-2" />
             {cartCount} Items
@@ -61,35 +61,35 @@ const Header = () => {
         <div className="md:hidden backdrop-blur-sm h-screen bg-opacity-90 px-8 py-6 space-y-4 text-white font-medium">
           <Link
             href="/"
-            className="block hover:text-pink-400"
+            className="block hover:text-[var(--color-brand)]"
             onClick={() => setIsOpen(false)}
           >
             Home
           </Link>
           <Link
             href="/"
-            className="block hover:text-pink-400"
+            className="block hover:text-[var(--color-brand)]"
             onClick={() => setIsOpen(false)}
           >
             About
           </Link>
           <Link
             href="/"
-            className="block hover:text-pink-400"
+            className="block hover:text-[var(--color-brand)]"
             onClick={() => setIsOpen(false)}
           >
             Restaurants
           </Link>
           <Link
             href="/"
-            className="block hover:text-pink-400"
+            className="block hover:text-[var(--color-brand)]"
             onClick={() => setIsOpen(false)}
           >
             Services
           </Link>
           <Link
             href="/contact"
-            className="block hover:text-pink-400"
+            className="block hover:text-[var(--color-brand)]"
             onClick={() => setIsOpen(false)}
           >
             Contact

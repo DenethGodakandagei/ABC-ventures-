@@ -22,7 +22,7 @@ const SuccessPopup: React.FC<SuccessPopupProps> = ({ message, onClose, duration 
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-gray-400 hover:text-red-600"
+          className="absolute top-3 right-3 text-gray-400 hover:text-[var(--color-brand)]"
         >
           <X className="w-5 h-5" />
         </button>
@@ -35,7 +35,7 @@ const SuccessPopup: React.FC<SuccessPopupProps> = ({ message, onClose, duration 
         </div>
 
         {/* Success Message */}
-        <h2 className="text-2xl font-semibold text-red-700 mb-2">Success !</h2>
+        <h2 className="text-2xl font-semibold text-[var(--color-brand)] mb-2">Success !</h2>
         <p className="text-sm text-gray-700">{message}</p>
       </div>
     </div>

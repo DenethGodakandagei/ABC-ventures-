@@ -10,6 +10,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+ --color-brand: #8a1739;
   --font-sans: 'Poppins', sans-serif;
   --font-serif: 'Playfair Display', serif;
 }

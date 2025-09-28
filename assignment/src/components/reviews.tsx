@@ -61,7 +61,7 @@ const reviewsData = [
 const Reviews = () => {
   return (
     <div className="py-12 px-6 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-playfair font-bold text-center text-pink-800 mb-10">
+      <h2 className="text-3xl font-playfair font-bold text-center text-[var(--color-brand)] mb-10">
         Reviews
       </h2>
 
